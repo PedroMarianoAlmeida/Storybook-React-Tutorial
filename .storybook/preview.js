@@ -1,7 +1,7 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider, theme, CSSReset, Box } from '@chakra-ui/core';
-import '@storybook/addon-console';
+import { withConsole } from '@storybook/addon-console';
 
 addDecorator(story => (
   <ThemeProvider theme={theme}>
@@ -10,6 +10,8 @@ addDecorator(story => (
       {story()}
     </Box>
   </ThemeProvider>))
+
+  addDecorator( (storyFn, context) => withConsole()(storyFn)(context) )
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
