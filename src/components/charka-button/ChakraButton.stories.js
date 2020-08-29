@@ -9,3 +9,7 @@ export default {
 
 export const Success = () => <Button onClick={action('Click handler')} variantColor='green'>Success</Button>
 export const Danger = () => <Button {...actions('onClick', 'onMouseOver')} variantColor='red'>Danger</Button>
+
+export const Log = () => (
+    <Button onClick={()=> console.log('Button clicked')} variantColor='blue'>Log</Button>
+)
