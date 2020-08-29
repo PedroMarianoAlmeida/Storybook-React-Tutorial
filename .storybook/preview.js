@@ -2,6 +2,7 @@ import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider, theme, CSSReset, Box } from '@chakra-ui/core';
 import { withConsole } from '@storybook/addon-console';
+import { withKnobs } from '@storybook/addon-knobs';
 
 addDecorator(story => (
   <ThemeProvider theme={theme}>
@@ -9,9 +10,10 @@ addDecorator(story => (
     <Box m='4'>
       {story()}
     </Box>
-  </ThemeProvider>))
+  </ThemeProvider>));
 
-  addDecorator( (storyFn, context) => withConsole()(storyFn)(context) )
+  addDecorator( (storyFn, context) => withConsole()(storyFn)(context) );
+  addDecorator( withKnobs );
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
